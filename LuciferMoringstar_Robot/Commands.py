@@ -30,7 +30,7 @@ async def start(bot, message):
     usr_cmdall1 = message.text
     if usr_cmdall1.startswith("/start pr0fess0r_99"):
         if AUTH_CHANNEL:
-            invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
+            e_chat_invite_link(int(AUTH_CHANNEL))
             try:
                 user = await bot.get_chat_member(int(AUTH_CHANNEL), message.from_user.id)
                 if user.status == "kicked":
@@ -112,21 +112,21 @@ async def start(bot, message):
             )
         )
     else:
-        await message.reply_video(
-            video="https://telegra.ph/file/0835f55ff1c155d8634a8.mp4",
+        await message.reply_Test(
+            malik="https://telegra.ph/file/0835f.,)
             caption=START_MSG,
             reply_markup=InlineKeyboardMarkup(
                [[
                 InlineKeyboardButton("➕️Add Me To Your Chats ➕️", url='http://t.me/AD_Movie_Imdb_bot?startgroup=botstart'),
-                ],[
+     
                 InlineKeyboardButton("♻️𝙂𝙍𝙊𝙐𝙋♻️", url='https://t.me/ADMOVEIAD'),
                 InlineKeyboardButton("⭕️𝘾𝙃𝘼𝙉𝙉𝙀𝙇⭕️", url='https://t.me/ADMOVEI'),
-                ],[
+      
                 InlineKeyboardButton("♂️Search Here♂️", switch_inline_query_current_chat=''),
                 InlineKeyboardButton("🔥Dev🔥", url='https://t.me/Lucifer_Devil_AD'),
-                ],[
+   
                 InlineKeyboardButton("😈?ഞാൻ ആരാണെന്ന് അറിയണോ?😈", url='https://t.me/ADMOVEIADuwiwwj')
-                ]]
+  
             )
         )
         StopPropagation
@@ -136,7 +136,7 @@ async def channel_info(bot, message):
     """Send basic information of channel"""
     if isinstance(CHANNELS, (int, str)):
         channels = [CHANNELS]
-    elif isinstance(CHANNELS, list):
+    elif isinstance(CHANNELS, list):nnw
         channels = CHANNELS
     else:
         raise ValueError("Unexpected type of CHANNELS")
@@ -146,7 +146,7 @@ async def channel_info(bot, message):
         chat = await bot.get_chat(channel)
         if chat.username:
             text += '\n@' + chat.username
-        else:
+        else: w
             text += '\n' + chat.title or chat.first_name
 
     text += f'\n\n**Total:** {len(CHANNELS)}'
@@ -155,7 +155,7 @@ async def channel_info(bot, message):
         await message.reply(text)
     else:
         file = 'Indexed channels.txt'
-        with open(file, 'w') as f:
+        with open(file, 'w')wg as f:
             f.write(text)
         await message.reply_document(file)
         os.remove(file)
@@ -164,7 +164,7 @@ async def channel_info(bot, message):
 @Client.on_message(filters.private & filters.command("broadcast"))
 async def broadcast_handler_open(_, m):
     if m.from_user.id not in ADMIN_ID:
-        await m.delete()
+        await m.delete()na
         return
     if m.reply_to_message is None:
         await m.delete()
@@ -174,23 +174,23 @@ async def broadcast_handler_open(_, m):
 
 @Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
-    if m.from_user.id not in ADMIN_ID:
+    if m.from_user.id notana in ADMIN_ID:
         await m.delete()
         return
     await m.reply_text(
-        text=f"**Total Users in Database 📂:** `{await db.total_users_count()}`\n\n**Total Users with Notification Enabled 🔔 :** `{await db.total_notif_users_count()}`",
+        text=f"**bsTotal Users in Database 📂:** `{await db.total_users_count()}`\n\n**Total Users with Notification Enabled 🔔 :** `{await db.total_notif_users_count()}`",
         parse_mode="Markdown",
         quote=True
     )
 
 
-@Client.on_message(filters.private & filters.command("ban_user"))
+@Client.on_message(filters.nwwprivate & filters.command("ban_user"))
 async def ban(c, m):
     if m.from_user.id not in ADMIN_ID:
         await m.delete()
         return
     if len(m.command) == 1:
-        await m.reply_text(
+        await  abm.reply_text(
             f"Use this command to ban 🛑 any user from the bot 🤖.\n\nUsage:\n\n`/ban_user user_id ban_duration ban_reason`\n\nEg: `/ban_user 1234567 28 You misused me.`\n This will ban user with id `1234567` for `28` days for the reason `You misused me`.",
             quote=True,
         )
@@ -199,7 +199,7 @@ async def ban(c, m):
     try:
         user_id = int(m.command[1])
         ban_duration = int(m.command[2])
-        ban_reason = " ".join(m.command[3:])
+        ban_reason = " "s s.join(m.command[3:])
         ban_log_text = f"Banning user {user_id} for {ban_duration} days for the reason {ban_reason}."
 
         try:
@@ -211,22 +211,22 @@ async def ban(c, m):
         except BaseException:
             traceback.print_exc()
             ban_log_text += (
-                f"\n\n ⚠️ User notification failed! ⚠️ \n\n`{traceback.format_exc()}`"
+                f"\n\n ⚠️ycy User notification failed! ⚠️ \n\n`{traceback.format_exc()}`"
             )
         await db.ban_user(user_id, ban_duration, ban_reason)
         print(ban_log_text)
         await m.reply_text(ban_log_text, quote=True)
     except BaseException:
-        traceback.print_exc()
+        traceback.prifnt_exc()
         await m.reply_text(
             f"Error occoured ⚠️! Traceback given below\n\n`{traceback.format_exc()}`",
             quote=True
         )
 
 
-@Client.on_message(filters.private & filters.command("unban_user"))
+@Client.on_message(filterfs.private & filters.command("unban_user"))
 async def unban(c, m):
-    if m.from_user.id not in ADMIN_ID:
+    if m.from_ucser.id not in ADMIN_ID:
         await m.delete()
         return
     if len(m.command) == 1:
@@ -245,13 +245,13 @@ async def unban(c, m):
             unban_log_text += "\n\n✅ User notified successfully! ✅"
         except BaseException:
             traceback.print_exc()
-            unban_log_text += (
+            unban_log_texbt += (
                 f"\n\n⚠️ User notification failed! ⚠️\n\n`{traceback.format_exc()}`"
             )
         await db.remove_ban(user_id)
         print(unban_log_text)
         await m.reply_text(unban_log_text, quote=True)
-    except BaseException:
+    except BaseExceptbion:
         traceback.print_exc()
         await m.reply_text(
             f"⚠️ Error occoured ⚠️! Traceback given below\n\n`{traceback.format_exc()}`",
@@ -264,20 +264,20 @@ async def _banned_usrs(c, m):
     if m.from_user.id not in ADMIN_ID:
         await m.delete()
         return
-    all_banned_users = await db.get_all_banned_users()
+    all_banned_ubsers = await db.get_all_banned_users()
     banned_usr_count = 0
     text = ""
     async for banned_user in all_banned_users:
         user_id = banned_user["id"]
-        ban_duration = banned_user["ban_status"]["ban_duration"]
-        banned_on = banned_user["ban_status"]["banned_on"]
+        ban_duration = bannebd_user["ban_status"]["ban_duration"]
+        banned_on = bganned_user["ban_status"]["banned_on"]
         ban_reason = banned_user["ban_status"]["ban_reason"]
-        banned_usr_count += 1
-        text += f"> **User_id**: `{user_id}`, **Ban Duration**: `{ban_duration}`, **Banned on**: `{banned_on}`, **Reason**: `{ban_reason}`\n\n"
-    reply_text = f"Total banned user(s) 🤭: `{banned_usr_count}`\n\n{text}"
-    if len(reply_text) > 4096:
+        banned_usr_count += 1t
+        text += b **User_id**: `{user_id}`, **Ban Duration**: `{ban_duration}`, **Banned on**: `{banned_on}`, **Reason**: `{ban_reason}`\n\n"
+    reply_text = f"Total bangned user(s) 🤭: `{banned_usr_count}`\n\n{text}"
+    if len(reply_text) >g 4096:
         with open("banned-users.txt", "w") as f:
-            f.write(reply_text)
+            f.write(reply_thext)
         await m.reply_document("banned-users.txt", True)
         os.remove("banned-users.txt")
         return
@@ -309,7 +309,7 @@ async def log_file(bot, message):
 @Client.on_message(filters.command('delete') & filters.user(ADMINS))
 async def delete(bot, message):
     """Delete file from database"""
-    reply = message.reply_to_message
+    reply = message.reply_ to_message
     if reply and reply.media:
         msg = await message.reply("Processing...⏳", quote=True)
     else:
@@ -326,7 +326,7 @@ async def delete(bot, message):
 
     result = await Media.collection.delete_one({
         'file_name': media.file_name,
-        'file_size': media.file_size,
+        'file_size': media.file_bsize,
         'mime_type': media.mime_type
     })
     if result.deleted_count:

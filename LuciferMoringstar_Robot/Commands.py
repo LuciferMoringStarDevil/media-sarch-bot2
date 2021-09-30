@@ -112,16 +112,20 @@ async def start(bot, message):
             )
         )
     else:
-        await message.reply_photo(
-            photo="https://telegra.ph/file/9e4771df0f2f210ba05df.jpg",
+        await message.reply_video(
+            video="https://telegra.ph/file/0835f55ff1c155d8634a8.mp4",
             caption=START_MSG,
             reply_markup=InlineKeyboardMarkup(
-                [[
-                InlineKeyboardButton("🤩Search Here", switch_inline_query_current_chat=''),
-                InlineKeyboardButton("More Botz", url="https://t.me/MT_Botz")
+               [[
+                InlineKeyboardButton("➕️Add Me To Your Chats ➕️", url='http://t.me/AD_Movie_Imdb_bot?startgroup=botstart'),
                 ],[
-                InlineKeyboardButton("Help", callback_data="help"),
-                InlineKeyboardButton("About", callback_data="about")
+                InlineKeyboardButton("♻️𝙂𝙍𝙊𝙐𝙋♻️", url='https://t.me/ADMOVEIAD'),
+                InlineKeyboardButton("⭕️𝘾𝙃𝘼𝙉𝙉𝙀𝙇⭕️", url='https://t.me/ADMOVEI'),
+                ],[
+                InlineKeyboardButton("♂️Search Here♂️", switch_inline_query_current_chat=''),
+                InlineKeyboardButton("🔥Dev🔥", url='https://t.me/Lucifer_Devil_AD'),
+                ],[
+                InlineKeyboardButton("😈?ഞാൻ ആരാണെന്ന് അറിയണോ?😈", url='https://t.me/ADMOVEIADuwiwwj')
                 ]]
             )
         )
